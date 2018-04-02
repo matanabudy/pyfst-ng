@@ -1,5 +1,7 @@
 * This is a modification on Chahuneau's pyfst work to enable it with latest openfst(v1.6.7)
 * install [OpenFst 1.6.7](http://openfst.org)
+* install python3 
+* install Cython by running `pip install cython`
 * run `python setup install`
 
 # pyfst
