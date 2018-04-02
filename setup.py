@@ -5,6 +5,9 @@ from distutils.extension import Extension
 
 INC, LIB = [], []
 
+if not os.path.exists('fst/_fst.cpp'):
+    os.system('./prepare_fst_cpp.sh')
+
 # MacPorts
 if sys.platform == 'darwin' and os.path.isdir('/opt/local/lib'):
     INC.append('/opt/local/include')
@@ -14,7 +17,7 @@ ext_modules = [
     Extension(name='fst._fst',
         sources=['fst/_fst.cpp'],
         libraries=['fst'],
-        extra_compile_args=['-O2'],
+        extra_compile_args=['--std=c++11','-O2'],
         include_dirs=INC,
         library_dirs=LIB)
 ]

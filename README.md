@@ -1,3 +1,7 @@
+* This is a modification on Chahuneau's pyfst work to enable it with latest openfst(v1.6.7)
+* install [OpenFst 1.6.7](http://openfst.org)
+* run `python setup install`
+
 # pyfst
 
 Python interface to [OpenFst](http://openfst.org)
