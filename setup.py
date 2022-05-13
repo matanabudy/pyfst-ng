@@ -9,9 +9,9 @@ if not os.path.exists('fst/_fst.cpp'):
     os.system('./prepare_fst_cpp.sh')
 
 # MacPorts
-if sys.platform == 'darwin' and os.path.isdir('/opt/local/lib'):
-    INC.append('/opt/local/include')
-    LIB.append('/opt/local/lib')
+if sys.platform == 'darwin' and os.path.isdir('/usr/local/lib'):
+    INC.append('/usr/local/include')
+    LIB.append('/usr/local/lib')
 
 ext_modules = [
     Extension(name='fst._fst',
