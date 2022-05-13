@@ -6,3 +6,4 @@ fst/libfst.cpp
 pyfst.egg-info/
 build/
 dist/
+.idea/
