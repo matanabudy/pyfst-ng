@@ -28,9 +28,9 @@ pyfst
 
 A Python interface for the OpenFst_ library.
 
-.. _OpenFst: http://www.openfst.org
+.. _OpenFst: https://www.openfst.org
 
-- Documentation: http://pyfst.github.io
+- Documentation:https:///pyfst.github.io
 - Source code: https://github.com/vchahun/pyfst
 
 Example usage::
@@ -52,7 +52,7 @@ Example usage::
 setup(
     name='pyfst',
     version='0.2.3',
-    url='http://pyfst.github.io',
+    url='https://pyfst.github.io',
     author='Victor Chahuneau',
     description='A Python interface to OpenFst.',
     long_description=long_description,
@@ -61,7 +61,7 @@ setup(
                  'Programming Language :: C++',
                  'Intended Audience :: Education',
                  'Intended Audience :: Science/Research'],
-    install_requires=['pyyaml'],
+    install_requires=['pyyaml', 'cython'],
     packages=['fst'],
     ext_modules=ext_modules
 )
