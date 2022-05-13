@@ -16,7 +16,7 @@ if __name__ == '__main__':
     yml_path = sys.argv[2]
     out_path = sys.argv[3]
     stream = open(yml_path, 'r')
-    types = yaml.load(stream)
+    types = yaml.safe_load(stream)
     buffer = ''
     is_in_template = False
     with open(out_path,'w') as out_f:
