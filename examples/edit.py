@@ -2,6 +2,7 @@
 import sys
 import fst
 
+
 def make_edit(sigma):
     """
     Make an edit distance transducer with operations:
@@ -42,6 +43,7 @@ def make_edit(sigma):
 
     return distance
 
+
 def main(a, b):
     """
     python edit.py atctagctagctagtgctagctgatgctgatcga acgtgtgctagtcgtgatggcatgctg
@@ -49,12 +51,13 @@ def main(a, b):
     atctagctagctagtgctagctgat-gc-tgatcga
     a-cgtg-t-gctagt-c--g-tgatggcatgct-g-
     """
-    edit_distance = make_edit(set(a+b))
+    edit_distance = make_edit(set(a + b))
     dist, align = edit_distance(a, b)
     print('Distance: {0}'.format(dist))
     x, y = zip(*align)
     print(''.join(x))
     print(''.join(y))
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:

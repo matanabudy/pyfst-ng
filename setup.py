@@ -15,11 +15,11 @@ if sys.platform == 'darwin' and os.path.isdir('/usr/local/lib'):
 
 ext_modules = [
     Extension(name='fst._fst',
-        sources=['fst/_fst.cpp'],
-        libraries=['fst'],
-        extra_compile_args=['--std=c++11', '-g', '-O2'],
-        include_dirs=INC,
-        library_dirs=LIB)
+              sources=['fst/_fst.cpp'],
+              libraries=['fst'],
+              extra_compile_args=['--std=c++11', '-g', '-O2'],
+              include_dirs=INC,
+              library_dirs=LIB)
 ]
 
 long_description = """

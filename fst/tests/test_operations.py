@@ -1,6 +1,7 @@
 import fst
 from nose.tools import eq_
 
+
 def test_shortest_distance():
     t = fst.Acceptor()
     t.add_arc(0, 1, 'a', 3)
@@ -12,6 +13,7 @@ def test_shortest_distance():
 
     eq_([float(v) for v in t.shortest_distance()], [0, 3, 5, 7])
     eq_([float(v) for v in t.shortest_distance(True)], [10, 7, 7, 3])
+
 
 def test_replace():
     syms = fst.SymbolTable()
@@ -60,6 +62,7 @@ def test_replace():
 
     eq_(result, expected)
 
+
 # TODO generate several paths and check number of paths generated
 # TODO check distributions?
 def test_randgen():
@@ -78,6 +81,7 @@ def test_randgen():
     # check that r \in t
     eq_(r & t.remove_weights(), r)
 
+
 def test_closure():
     t = fst.linear_chain('ab')
     result = t.closure_plus()
@@ -86,6 +90,7 @@ def test_closure():
     expected = t + t.closure()
     expected.remove_epsilon()
     eq_(result, expected)
+
 
 if __name__ == '__main__':
     test_shortest_distance()

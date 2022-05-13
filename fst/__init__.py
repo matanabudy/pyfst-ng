@@ -1,7 +1,7 @@
-from fst._fst import EPSILON, EPSILON_ID, SymbolTable,\
-        read, read_log, read_std, read_symbols,\
-        LogWeight, LogArc, LogState, LogVectorFst,\
-        TropicalWeight, StdArc, StdState, StdVectorFst
+from fst._fst import EPSILON, EPSILON_ID, SymbolTable, \
+    read, read_log, read_std, read_symbols, \
+    LogWeight, LogArc, LogState, LogVectorFst, \
+    TropicalWeight, StdArc, StdState, StdVectorFst
 
 
 def _make_transducer_class(clsname, parent):
@@ -18,7 +18,7 @@ def _make_transducer_class(clsname, parent):
         while src > len(self) - 1:
             self.add_state()
         parent.add_arc(self, src, tgt, self.isyms[ilabel], self.osyms[olabel],
-                weight=weight)
+                       weight=weight)
 
     def __getitem__(self, stateid):
         while stateid > len(self) - 1:
@@ -37,6 +37,7 @@ LogTransducer = _make_transducer_class('LogTransducer', LogVectorFst)
 class Transducer(object):
     """Transducer(isyms=None, osyms=None, semiring='tropical') -> transducer
     from the desired semiring"""
+
     def __new__(cls, isyms=None, osyms=None, semiring='tropical'):
         return (LogTransducer if semiring == 'log' else StdTransducer)(isyms, osyms)
 
@@ -62,14 +63,15 @@ LogAcceptor = _make_acceptor_class('LogAcceptor', LogTransducer)
 
 class Acceptor(object):
     """Acceptor(syms=None, semiring='tropical') -> acceptor from the desired semiring"""
+
     def __new__(cls, syms=None, semiring='tropical'):
         return (LogAcceptor if semiring == 'log' else StdAcceptor)(syms)
-    
+
 
 def linear_chain(text, syms=None, semiring='tropical'):
     """linear_chain(text, syms=None) -> linear chain acceptor for the given input text"""
     chain = Acceptor(syms, semiring=semiring)
     for i, c in enumerate(text):
-        chain.add_arc(i, i+1, c)
-    chain[i+1].final = True
+        chain.add_arc(i, i + 1, c)
+    chain[i + 1].final = True
     return chain
