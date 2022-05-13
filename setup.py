@@ -17,7 +17,7 @@ ext_modules = [
     Extension(name='fst._fst',
         sources=['fst/_fst.cpp'],
         libraries=['fst'],
-        extra_compile_args=['--std=c++11','-O2'],
+        extra_compile_args=['--std=c++11', '-g', '-O2'],
         include_dirs=INC,
         library_dirs=LIB)
 ]
@@ -61,6 +61,7 @@ setup(
                  'Programming Language :: C++',
                  'Intended Audience :: Education',
                  'Intended Audience :: Science/Research'],
+    install_requires=['pyyaml'],
     packages=['fst'],
     ext_modules=ext_modules
 )

@@ -9,7 +9,7 @@ from libcpp.string cimport string
 from libcpp.pair cimport pair
 from libc.stdint cimport uint64_t
 from libc.limits cimport INT_MAX
-from util cimport ifstream, ostringstream
+from util cimport ifstream, ostringstream, stringstream
 
 EPSILON_ID = 0
 EPSILON = u'\u03b5'
@@ -798,7 +798,7 @@ cdef class {{fst}}(_Fst):
             SymbolTable ssyms=None):
         """fst.draw(SymbolTable isyms=None, SymbolTable osyms=None, SymbolTable ssyms=None)
         -> dot format representation of the transducer"""
-        cdef ostringstream out
+        cdef stringstream out
         cdef sym.SymbolTable* isyms_table = (isyms.table if isyms 
                                              else self.isyms.table if self.isyms
                                              else NULL)
@@ -810,7 +810,7 @@ cdef class {{fst}}(_Fst):
         drawer = new libfst.FstDrawer[libfst.{{arc}}](self.fst[0],
                 isyms_table, osyms_table, ssyms_table,
                 False, string(), 8.5, 11, True, False, 0.40, 0.25, 14, 5, '', False)
-        drawer.Draw(&out, 'fst')
+        drawer.Draw(out, 'fst')
         cdef bytes out_str = out.str()
         del drawer
         if self.acceptor:

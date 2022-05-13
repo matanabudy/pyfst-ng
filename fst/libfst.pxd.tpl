@@ -201,4 +201,4 @@ cdef extern from "<fst/script/draw.h>" namespace "fst":
                   string float_format,
                   bint show_weight_one)
 
-        void Draw(ostream *strm, string &dest)
+        void Draw(ostream &strm, string &dest)
