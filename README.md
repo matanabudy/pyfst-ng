@@ -1,22 +1,17 @@
-* This is a modification on Chahuneau's pyfst work to enable it with latest openfst(v1.6.7)
-* install [OpenFst 1.6.7](http://openfst.org)
-* install python3 
-* install Cython by running `pip install cython`
-* run `python setup install`
-
 # pyfst
-
-Python interface to [OpenFst](http://openfst.org)
+Python interface to [OpenFst](https://openfst.org).
+This is based on the original PyFST repository by [vchahun](https://github.com/vchahun/pyfst), and the modifications done by [placebokkk](https://github.com/placebokkk/pyfst)
 
 Documentation: http://pyfst.github.io
 
 ## Installation
+1. Install [OpenFst 1.7.9](https://openfst.org)
+2. Clone the repository and run `python setup.py install`
 
-1. Install OpenFst 1.3
-2. `pip install pyfst` (do not try installing directly from the git repository)
+## Known Issues
+- Works until OpenFST 1.7.9
 
 ## Basic Usage
-
 ```python
 import fst
 
